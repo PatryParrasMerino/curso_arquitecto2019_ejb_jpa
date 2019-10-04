@@ -10,6 +10,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="pedidos")
+@NamedQueries({
+@NamedQuery(name="Pedido.findAll", query="SELECT p FROM Pedido p")
+})
 public class Pedido implements Serializable {
 
 	@Id

@@ -28,8 +28,8 @@ public class DaoPedidosImpl implements DaoPedidos {
 
 	@Override
 	public List<Pedido> recuperarPedidos() {
-		String jpql="Select p From Pedido p";
-		Query qr=em.createQuery(jpql);
+		//String jpql="Select p From Pedido p";
+		Query qr=em.createNamedQuery("Pedido.findAll");
 		return (List<Pedido>)qr.getResultList();
 	}
 

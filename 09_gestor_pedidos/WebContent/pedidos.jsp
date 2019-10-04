@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.List,model.Contacto,daos.DaoContactos"%>
+    pageEncoding="ISO-8859-1" import="java.util.List,model.Pedido,daos.DaoPedidos"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show contacts here</title>
-<!-- Latest compiled and minified CSS -->
+<title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- jQuery library -->
@@ -16,34 +15,35 @@
 </head>
 <body>
 	<%
-	List<Contacto> listaContactos=(List<Contacto>)request.getAttribute("contactos");
+	List<Pedido> listaPedidos=(List<Pedido>)request.getAttribute("pedidos");
 	%>
 <div class="container">
   <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Edad</th>
+        <th>Categoria</th>
+        <th>Precio</th>
+        <th>Producto</th>
         <th></th>
       </tr>
     </thead>
     <tbody>
-	<%for(Contacto contacto:listaContactos){ %>
+	<%for(Pedido pedido:listaPedidos){ %>
       <tr>
-        <td><%=contacto.getIdContacto() %></td>
-        <td><%=contacto.getNombre() %></td>
-        <td><%=contacto.getEmail() %></td>
-        <td><%=contacto.getEdad() %></td>
-        <td><a href="Controller?op=doEliminar&id=<%=contacto.getIdContacto()%>">Eliminar</a></td>
+        <td><%=pedido.getIdPedido()%></td>
+        <td><%=pedido.getCategoria()%></td>
+        <td><%=pedido.getPrecio()%></td>
+        <td><%=pedido.getProducto()%></td>
+        <td><a href="Controller?op=doEliminar&id=<%=pedido.getIdPedido()%>">Eliminar</a></td>
+        <td><a href="Controller?op=toModificar&id=<%=pedido.getIdPedido()%>">Editar</a></td>
       </tr>
       <%} %>
     </tbody>
   </table>
     <div class="col-sm-10">
 		
-		<a type="button" href='Controller?op=toEntrada' class="btn btn-default">Volver</a>
+		<a type="button" href='Controller?op=toVolver' class="btn btn-default">Volver</a>
 	</div>
 </div>
 

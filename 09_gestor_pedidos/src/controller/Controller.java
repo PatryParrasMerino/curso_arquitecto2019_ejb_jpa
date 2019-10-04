@@ -26,8 +26,10 @@ public class Controller extends HttpServlet {
 				request.getRequestDispatcher("ConsultarAction").include(request, response);
 				urlFinal="pedidos.jsp";
 				break;
-			case "doEditar":
-				request.getRequestDispatcher("EditarAction").include(request, response);
+			case "doModificar":
+				request.getRequestDispatcher("ModificarAction").include(request, response);
+			case "doRecuperarPedido":
+				request.getRequestDispatcher("RecuperarPedidoAction").include(request, response);
 				urlFinal="pedidos.jsp";
 				break;
 			case "toModificar":
