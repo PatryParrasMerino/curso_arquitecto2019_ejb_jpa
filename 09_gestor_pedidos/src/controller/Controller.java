@@ -28,11 +28,14 @@ public class Controller extends HttpServlet {
 				break;
 			case "doModificar":
 				request.getRequestDispatcher("ModificarAction").include(request, response);
+				urlFinal="pedidos.jsp";
+				break;
 			case "doRecuperarPedido":
 				request.getRequestDispatcher("RecuperarPedidoAction").include(request, response);
 				urlFinal="pedidos.jsp";
 				break;
 			case "toModificar":
+				request.getRequestDispatcher("RecuperarPedidoAction").include(request, response);
 				urlFinal="modificar.jsp";
 				break;
 			case "toVolver":
