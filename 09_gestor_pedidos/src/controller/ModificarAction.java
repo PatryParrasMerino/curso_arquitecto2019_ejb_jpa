@@ -20,7 +20,7 @@ public class ModificarAction extends HttpServlet {
 	@EJB
 	DaoPedidos dao;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Pedido pedido=new Pedido(Integer.parseInt(request.getParameter("idPedido")),
+		Pedido pedido=new Pedido(Integer.parseInt(request.getParameter("id")),
 				request.getParameter("categoria"),
 				Double.parseDouble(request.getParameter("precio")),
 				request.getParameter("producto"));
