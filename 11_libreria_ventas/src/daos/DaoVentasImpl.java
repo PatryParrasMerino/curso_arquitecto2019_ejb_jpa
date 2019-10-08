@@ -6,8 +6,8 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
+import model.Cliente;
 import model.Venta;
 
 /**
@@ -21,9 +21,9 @@ public class DaoVentasImpl implements DaoVentas {
 	EntityManager em;
 
 	@Override
-	public List<Venta> recuperarVentas() {
-		Query qr=em.createNamedQuery("Venta.findAll");
-		return (List<Venta>)qr.getResultList();
+	public List<Venta> recuperarVentasCliente(int idCliente) {
+		Cliente cliente=em.find(Cliente.class, idCliente);
+		return cliente.getVentas();
 	}
 
 }

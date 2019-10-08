@@ -8,5 +8,5 @@ import model.Venta;
 
 @Local
 public interface DaoVentas {
-	List<Venta> recuperarVentas();
+	List<Venta> recuperarVentasCliente(int idCliente);
 }

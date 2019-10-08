@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import daos.DaoVentas;
+import model.Cliente;
 
 /**
  * Servlet implementation class ComprasAction
@@ -22,10 +23,13 @@ public class VentasAction extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	@EJB
-	DaoVentas ventas;
+	DaoVentas daoVentas;
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("ventas", ventas.recuperarVentas());
+		Cliente cliente=(Cliente)request.getSession().getAttribute("cliente");
+		if(cliente!=null) {
+			request.setAttribute("ventas", daoVentas.recuperarVentasCliente(cliente.getIdCliente()));
+		}
 	}
 
 }

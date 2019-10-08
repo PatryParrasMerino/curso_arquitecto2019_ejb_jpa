@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import daos.DaoClientes;
 import daos.DaoTemas;
+import model.Cliente;
 
 
 
@@ -24,12 +25,13 @@ public class LoginAction extends HttpServlet {
 		
 		
 		boolean resultado=false;
-		if(gestion.autenticar(request.getParameter("user"),request.getParameter("pwd"))){
+		Cliente cliente=gestion.getCliente(request.getParameter("user"), request.getParameter("pwd"));
+		if(cliente!=null){
 			
 			request.setAttribute("temas", gtemas.obtenerTemas());
 			
             resultado=true;
-            
+            request.getSession().setAttribute("cliente", cliente);
 
 		}
 		else{

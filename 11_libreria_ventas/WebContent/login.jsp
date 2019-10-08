@@ -11,8 +11,8 @@
 		<form action="Controller?op=doLogin" method="POST">
 		 
 		
-			Usuario:<input type="text" name="user" /><br/>
-			Contraseña:<input type="password" name="pwd"/><br/>
+			Usuario:<input type="text" name="user" value="test1" /><br/>
+			Contraseña:<input type="password" name="pwd" value="test1"/><br/>
 			
 			<br/>
 			<input type="submit" value="Enviar"/><br/>
