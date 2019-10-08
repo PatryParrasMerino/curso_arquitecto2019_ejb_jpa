@@ -27,7 +27,7 @@
 			
 		</form>
 		
-		<a href="Controller?op=toVentas">Mis compras</a>
+		<a href="Controller?op=doVentas">Mis compras</a>
 
 	
 	</center>

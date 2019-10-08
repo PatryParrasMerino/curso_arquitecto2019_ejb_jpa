@@ -37,10 +37,7 @@ public class Controller extends HttpServlet {
                     	break;
                     case "toRegistro":
                         url="registro.html";
-                        break; 
-                    case "toVentas":
-                    	url="ventas.jsp";
-                    	break;
+                        break;
                     case "toVolver":
                     	url="temas.jsp";
                     	break;
