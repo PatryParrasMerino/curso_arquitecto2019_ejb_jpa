@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sumar() {	
+		var n1,n2;
+		n1=parseInt(document.getElementById("caja1").value);
+		n2=parseInt(document.getElementById("caja2").value);
+		var suma=0;
+		for(var i=n1;i<=n2;i++){
+			suma+=i;
+		}
+		//console.log(suma); //consola
+		//alert(suma); //cuadro dialogo
+		//obtener referencia al div
+		var objDiv=document.getElementById("res");
+		objDiv.innerHTML="<h1>"+suma+"</h1>";
+	}
+</script>
+</head>
+<body>
+<center>	
+	caja1:<input type="text" id="caja1"/><br/>
+	caja2:<input type="text" id="caja2"/><br/>
+	<button onclick="sumar();">Pulsar</button>
+	<br/><br/>
+	<div id="res">
+	
+	
+	</div>
+</center>
+</body>
+</html>
