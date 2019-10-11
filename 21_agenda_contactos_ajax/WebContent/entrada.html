@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	function lanzarPeticion(){
+		var url="Controller?op=doContactos";
+		$.get(url,function(data,status){
+			procesarRespuesta(data);
+		});
+	}
+	function eliminar(id){
+		var url="Controller?op=doEliminar&idContacto="+id;
+		$.get(url,function(data,status){
+			procesarRespuesta(data);
+		});
+	}
+	
+	function procesarRespuesta(data){
+		//alert(data);
+		var json=JSON.parse(data);
+		var tabla="<table border='1'><tr><th>Id</th><th>Nombre</th><th>Email</th><th>Edad</th><th></th></tr>"
+		/*for (var i = 0; i < json.length; i++) {
+			tabla+="<tr><td>"+json[i].idContacto+"</td><td>"+json[i].nombre+"</td><td>"+json[i].email+"</td><td>"+json[i].edad+"</td><td><a href='#' onclick='eliminar("+json[i].idContacto+");'>Eliminar</a></td></tr>";
+		}*/
+		$.each(json,function(index,e){ //e es el elemento, index el contador
+			tabla+="<tr><td>"+e.idContacto+"</td><td>"+e.nombre+"</td><td>"+e.email+"</td><td>"+e.edad+"</td><td><a href='#' onclick='eliminar("+e.idContacto+");'>Eliminar</a></td></tr>";
+		});
+		tabla+="</table>";
+		$("#tabla").html(tabla);
+	}
+
+
+</script>
+</head>
+<body>
+	<a href="Controller?op=toDatos">Alta</a>&nbsp;&nbsp;&nbsp;
+	<a href="#" onclick="lanzarPeticion();">Mostrar</a>
+	</br></br>
+	<div id="tabla">
+	</div>
+</body>
+</html>
